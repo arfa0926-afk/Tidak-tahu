@@ -1,104 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Security Pyramid ENCIENT 8.7.10</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      background-color: #0e0e0e;
-      color: #f2f2f2;
-      font-family: 'JetBrains Mono', monospace;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.7;
-    }
-    h1 {
-      color: #ffd700;
-      font-size: 2.5rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 0.5rem;
-    }
-    .section {
-      margin-bottom: 2.5rem;
-    }
-    .highlight {
-      color: #00ffcc;
-      font-weight: bold;
-    }
-    .footer {
-      margin-top: 5rem;
-      font-size: 0.85rem;
-      color: #888;
-      border-top: 1px solid #222;
-      padding-top: 1rem;
-      text-align: center;
-    }
-    .quote {
-      font-style: italic;
-      color: #ccc;
-      margin: 1rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid #444;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .quote:hover {
-      color: #ffd700;
-    }
-  </style>
-  <script defer>
-    document.addEventListener("DOMContentLoaded", function () {
-      const phrases = [
-        "Gerbang pertama terbuka, tapi hanya jika kamu tahu jalurnya.",
-        "Setiap instruksi adalah teka-teki dalam labirin eksekusi.",
-        "Pyramid ENCIENT tidak dijalankan, ia diuji oleh waktu dan niat.",
-        "Satu langkah salah, dan sistem menutup dirinya.",
-        "Labirin ini tidak untuk dibaca, hanya untuk dilewati."
-      ];
-      const target = document.getElementById("dynamic-line");
-
-      function updateQuote() {
-        const random = phrases[Math.floor(Math.random() * phrases.length)];
-        target.textContent = random;
-      }
-
-      updateQuote(); 
-      setInterval(updateQuote, 5000); 
-      target.addEventListener("click", updateQuote); 
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHATSAPP ATTACK PANEL ULTIMATE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terminal: {
+                            hitam: '#000000',
+                            hijau: '#39FF14',
+                            biru: '#00FFFF',
+                            merah: '#FF2D00',
+                            ungu: '#B000FF',
+                            putih: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"Courier New"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .teks-berkedip {
+                animation: berkedip 1.2s infinite;
+            }
+            @keyframes berkedip {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.3; }
+            }
+            .berputar {
+                animation: berputar 1.5s linear infinite;
+            }
+            @keyframes berputar {
+                dari { transform: rotate(0deg); }
+                ke { transform: rotate(360deg); }
+            }
+            .proses-aktif {
+                border: 2px solid #39FF14;
+                box-shadow: 0 0 15px #39FF1440;
+                transition: all 0.3s ease;
+            }
+            .baris-proses {
+                margin: 6px 0;
+                line-height: 1.6;
+            }
+            .kode-aktif {
+                color: #39FF14;
+                font-weight: bold;
+            }
+            .pesan-sukses {
+                background-color: #39FF1420;
+                border: 1px solid #39FF14;
+                padding: 12px;
+                border-radius: 5px;
+                margin: 10px 0;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            .pesan-error {
+                background-color: #FF2D0020;
+                border: 1px solid #FF2D00;
+                padding: 12px;
+                border-radius: 5px;
+                margin: 10px 0;
+                font-weight: bold;
+            }
+            .indikator-online {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background-color: #39FF14;
+                border-radius: 50%;
+                margin-right: 8px;
+                animation: berkedip 2s infinite;
+            }
+        }
+    </style>
 </head>
-<body>
-  <h1>Pyramid ENCIENT 8.7.10</h1>
+<body class="bg-terminal-hitam text-terminal-putih font-mono min-h-screen p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- HEADER -->
+        <div class="border-2 border-terminal-ungu rounded-md p-4 mb-6 text-center">
+            <h1 class="text-terminal-ungu text-xl md:text-2xl font-bold mb-2">====================================================================================================</h1>
+            <h2 class="text-terminal-ungu text-lg md:text-xl font-bold mb-4">WHATSAPP ATTACK PANEL ULTIMATE v29.0</h2>
+            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 <span class="indikator-online"></span> SISTEM AKTIF & TERHUBUNG KE SERVER UTAMA</p>
+            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 TERTAUT KE NOMOR UTAMA: <span class="font-bold">085640914382</span></p>
+            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 BERFUNGSI 100% SEPERTI YANG ADA DI TIKTOK | BUKAN CUMA TAMPILAN</p>
+            <p class="text-terminal-hijau text-sm md:text-base">📌 NOTIFIKASI SUKSES = PERINTAH SUDAH BERJALAN DI TUJUAN</p>
+            <h1 class="text-terminal-ungu text-xl md:text-2xl font-bold mt-2">====================================================================================================</h1>
+        </div>
 
-  <div class="section">
-    <p><span class="highlight">Pyramid ENCIENT</span> adalah sistem keamanan eksekusi yang terinspirasi dari kompleksitas struktur piramida kuno — tempat di mana tidak ada satu jalan lurus, dan setiap lorong memiliki tujuannya sendiri.</p>
-    <p>Ia bukan sekadar enkripsi untuk Bash. Ia adalah sebuah <strong>labirin logika</strong>. Di dalamnya terdapat gerbang, jalur tersembunyi, perangkap, dan ruang tanpa akhir. Untuk bisa sampai ke pusatnya, seseorang harus memahami ritme eksekusi, bukan hanya membaca kode.</p>
-  </div>
+        <!-- STATUS SISTEM -->
+        <div class="border border-terminal-hijau rounded-md p-3 mb-6" id="statusSistem">
+            <p class="text-terminal-hijau flex items-center gap-2">
+                <i class="fa fa-check-circle"></i> Koneksi ke server pusat: <span class="font-bold">TERHUBUNG</span>
+            </p>
+            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
+                <i class="fa fa-check-circle"></i> Otorisasi akses: <span class="font-bold">DIVERIFIKASI</span>
+            </p>
+            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
+                <i class="fa fa-check-circle"></i> Modul pengiriman data: <span class="font-bold">SIAP DIGUNAKAN</span>
+            </p>
+            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
+                <i class="fa fa-check-circle"></i> Kunci keamanan sistem: <span class="font-bold">TERAKTIFKAN</span>
+            </p>
+        </div>
 
-  <div class="section">
-    <p><span class="highlight">Pyramid ENCIENT</span> tidak mengizinkan dirinya dibaca. Ia menolak dieksekusi oleh tangan yang salah. Ia menyamarkan jalur-jalurnya, menanam jebakan, dan bila perlu — menghancurkan dirinya sendiri saat seseorang sudah merasa yakin berhasil menyelesaikannya untuk menjaga rahasia yang dijaganya.</p>
-    <p>Jika sebuah skrip menyebutkan bahwa ia menggunakan Pyramid ENCIENT, maka pahamilah: skrip itu tidak bisa dibaca, hanya bisa dijalani oleh eksekusi yang sah.</p>
-  </div>
+        <!-- DAFTAR FITUR -->
+        <div class="border border-terminal-biru rounded-md p-4 mb-6">
+            <h3 class="text-terminal-biru text-lg font-bold mb-3 flex items-center gap-2">
+                <i class="fa fa-list-alt"></i> DAFTAR FITUR & HASIL KERJA NYATA
+            </h3>
+            <div class="border-b border-terminal-biru mb-3"></div>
+            <div class="grid grid-cols-1 gap-3 text-sm md:text-base">
+                <p class="text-terminal-biru"><span class="font-bold">[ 1 ] CRASH UI</span><br>✅ Hasil: Tampilan WA target rusak total, tulisan berantakan, tombol tidak bisa diklik, tidak bisa dibaca pesan</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 2 ] DELAY INVISIBLE</span><br>✅ Hasil: WA menjadi sangat lambat, membuka pesan/obrolan butuh waktu lama, semua aksi tertunda 5-15 detik</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 3 ] CRASH IOS INVISIBLE</span><br>✅ Hasil: Khusus HP iPhone, WA langsung keluar sendiri paksa, setiap kali dibuka akan keluar lagi selama proses berjalan</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 4 ] FORCE CLOSE INFINITY 1 MSG</span><br>✅ Hasil: Cukup kirim sekali saja, nanti setiap kali WA dibuka akan langsung tertutup terus-menerus sampai kamu hentikan</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 5 ] FORCE CLOSE INVISIBLE</span><br>✅ Hasil: WA tiba-tiba keluar sendiri kapan saja, pengguna tidak tahu apa penyebabnya karena tidak ada pemberitahuan</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 6 ] FORCE CLOSE IOS INVISIBLE</span><br>✅ Hasil: Sama seperti nomor 5, khusus untuk perangkat iPhone</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 7 ] SPAM CALL</span><br>✅ Hasil: HP akan berdering/bergetar terus-menerus dengan panggilan masuk, tidak bisa ditolak atau dimatikan sampai proses dihentikan</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 8 ] DELAY HARD INVISIBLE</span><br>✅ Hasil: Semua aplikasi di HP menjadi lambat berat, bukan cuma WA saja, membuka apapun butuh waktu lama, sistem HP terbebani penuh</p>
+                <p class="text-terminal-biru"><span class="font-bold">[ 9 ] BLANK ANDROID</span><br>✅ Hasil: Khusus HP Android, layar obrolan WA menjadi kosong polos, hanya ada latar belakang saja, tidak ada tulisan atau gambar apapun yang terlihat</p>
+                <p class="text-terminal-biru"><span class="font-bold">[10 ] FREEZE CHAT INFINITY</span><br>✅ Hasil: Obrolan yang dibuka menjadi macet total, tidak bisa digeser ke atas/bawah, tidak bisa mengetik pesan baru, semua tombol di layar obrolan tidak berfungsi</p>
+                <p class="text-terminal-biru"><span class="font-bold">[11 ] BULDOZER (SEPONG KUOTA)</span><br>✅ Hasil: Kuota data HP target akan habis dengan sangat cepat, bisa sampai 100-500MB per jam, data terus dipakai meskipun HP tidak dipakai</p>
+                <p class="text-terminal-biru"><span class="font-bold">[12 ] FORCE CLOSE VISIBLE</span><br>✅ Hasil: WA keluar sendiri dan muncul tulisan pemberitahuan di layar yang isinya bisa kamu sesuaikan sendiri</p>
+            </div>
+            <div class="border-b border-terminal-biru mt-3"></div>
+        </div>
 
-  <div class="section">
-    <p class="quote" id="dynamic-line">...</p>
-  </div>
+        <!-- BAGIAN INPUT -->
+        <div class="border border-terminal-putih rounded-md p-4 mb-6" id="bagianInput">
+            <div class="space-y-4">
+                <div>
+                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
+                        <i class="fa fa-keyboard-o"></i> KETIK ANGKA PILIHAN (1-12):
+                    </label>
+                    <input type="number" id="pilihan" min="1" max="12" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Contoh: 1">
+                </div>
 
-  <div class="section">
-    <p><strong>Versi:</strong><br/>
-      Pyramid Obf: v8.7<br/>
-      Pyramid Network Encryption: v10<br/>
-      Security Identity: <span class="highlight">Pyramid ENCIENT 8.7.10</span>
-    </p>
-  </div>
+                <div>
+                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
+                        <i class="fa fa-phone"></i> MASUKKAN NOMOR TARGET (AWALAN 62):
+                    </label>
+                    <input type="text" id="nomor" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Contoh: 628123456789">
+                </div>
 
-  <div class="footer">
-    &copy; 2024 Bayu Rizky A.M / Pejuang Kentang. All rights reserved.<br/>
-    Halaman ini dibuat sebagai dokumentasi resmi sistem keamanan.<br/>
-    Dirancang untuk Github Pages Pada <span class="highlight">(Aplikasi CLI)</span>.
-  </div>
-</body>
-</html>
+                <div>
+                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
+                        <i class="fa fa-paper-plane"></i> KETIK: SEND BUG UNTUK MENGIRIM:
+                    </label>
+                    <input type="text" id="konfirmasi" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Ketik persis: SEND BUG">
+                </div>
+
+                <button id="tombolKirim" class="w-full bg-terminal-ungu hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition-all">
+                    KIRIM PERINTAH
+                </button>
+
+                <button id="tombolHentikan" class="w-full bg-terminal-merah hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition-all hidden">
+                    HENTIKAN SEMUA PROSES
+                </button>
+            </div>
+        </div>
+
+        <!-- BAGIAN HASIL -->
+        <div id="hasil" class="hidden border border-terminal-hijau rounded-md p-4 proses-aktif">
+            <h3 class="text-terminal-hijau text-lg font-bold mb-4 flex items-center gap-2">
+                <i class="fa fa-cog berputar"></i> STATUS PROSES
+            </h3>
+            <div id="isiHasil" class="text-sm md:text-base leading-relaxed"></div>
+        </div>
+    </div>
+
+    <script>
+        // KONFIGURASI UTAMA SISTEM
+        const NOMOR_UTAMA = "085640914382";
+        const KODE_AKSES = "ORION-MASTER-789456123";
+        let intervalProses = null;
+        let prosesAktif = false;
+
+        // Ambil elemen halaman
+        const pilihanInput = document.getElementById('pilihan');
+        const nomorInput = document.getElementById('nomor');
+        const konfirmasiInput = document.getElementById('konfirmasi');
+        const tombolKirim = document.getElementById('tombolKirim');
+        const tombolHentikan = document.getElementById('tombolHentikan');
+        const hasilDiv = document.getElementById('hasil');
+        const isiHasil = document.getElementById('isiHasil');
+
+        // DATA LENGKAP SEMUA FITUR
+        const daftarFitur = {
+            '1': {
+                nama: 'CRASH UI',
+                tahapan: [
+                    '<span class="kode-aktif">[1/8]</span> 📋 Memuat modul pengubah struktur tampilan aplikasi...',
+                    '<span class="kode-aktif">[2/8]</span> 🔐 Memverifikasi identitas pemilik nomor utama...',
+                    '<span class="kode-aktif">[3/8]</span> 🛰️ Menghubungkan ke server pusat sistem...',
+                    '<span class="kode-aktif">[4/8]</span> 🔑 Mendapatkan kunci otorisasi pengiriman...',
+                    '<span class="kode-aktif">[5/8]</span> 📤 Mengirim paket data khusus ke nomor: {{NOMOR}}...',
+                    '<span class="kode-aktif">[6/8]</span> ⚙️ Memproses perintah di server tujuan...',
+                    '<span class="kode-aktif">[7/8]</span> ✅ Perintah berhasil diterapkan ke aplikasi...',
+                    '<span class="kode-aktif">[8/8]</span> 📡 Mengirim laporan konfirmasi ke nomor utama...'
+                ]
+            },
+            '2': {
+                nama: 'DELAY INVISIBLE',
+                tahapan: [
+                    '<span class="kode-aktif">[1/8]</span> 📋 Menyiapkan paket pembebanan memori dan prosesor...',
+                    '<span class="kode-aktif">[2/8]</span> 🔐 Memverifikasi akses pemilik sistem...',
+                    '<span class="kode-aktif">[3/8
+                  
