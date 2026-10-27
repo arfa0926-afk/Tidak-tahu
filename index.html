@@ -1,225 +1,106 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WHATSAPP ATTACK PANEL ULTIMATE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        terminal: {
-                            hitam: '#000000',
-                            hijau: '#39FF14',
-                            biru: '#00FFFF',
-                            merah: '#FF2D00',
-                            ungu: '#B000FF',
-                            putih: '#FFFFFF'
-                        }
-                    },
-                    fontFamily: {
-                        mono: ['"Courier New"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
-            .teks-berkedip {
-                animation: berkedip 1.2s infinite;
-            }
-            @keyframes berkedip {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.3; }
-            }
-            .berputar {
-                animation: berputar 1.5s linear infinite;
-            }
-            @keyframes berputar {
-                dari { transform: rotate(0deg); }
-                ke { transform: rotate(360deg); }
-            }
-            .proses-aktif {
-                border: 2px solid #39FF14;
-                box-shadow: 0 0 15px #39FF1440;
-                transition: all 0.3s ease;
-            }
-            .baris-proses {
-                margin: 6px 0;
-                line-height: 1.6;
-            }
-            .kode-aktif {
-                color: #39FF14;
-                font-weight: bold;
-            }
-            .pesan-sukses {
-                background-color: #39FF1420;
-                border: 1px solid #39FF14;
-                padding: 12px;
-                border-radius: 5px;
-                margin: 10px 0;
-                font-weight: bold;
-                font-size: 16px;
-            }
-            .pesan-error {
-                background-color: #FF2D0020;
-                border: 1px solid #FF2D00;
-                padding: 12px;
-                border-radius: 5px;
-                margin: 10px 0;
-                font-weight: bold;
-            }
-            .indikator-online {
-                display: inline-block;
-                width: 12px;
-                height: 12px;
-                background-color: #39FF14;
-                border-radius: 50%;
-                margin-right: 8px;
-                animation: berkedip 2s infinite;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111c">
+<title>Room Wangi MLBB</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:20px;min-height:100vh;
+  display:grid;place-items:center;
+  font-family:Arial,sans-serif;color:white;
+  background:radial-gradient(ellipse at top,#123b50,transparent 65%),#070b13
+}
+main{
+  width:100%;max-width:430px;padding:25px;
+  border:1px solid #00dfff;border-radius:20px;
+  background:#0b1522;box-shadow:0 0 30px #00dfff20
+}
+.logo{text-align:center;font-size:44px}
+h1{text-align:center;color:#00eaff;letter-spacing:2px}
+.sub{text-align:center;color:#94adbf;font-size:12px}
+label{display:block;margin:18px 0 8px;font-size:13px}
+input,select{
+  width:100%;padding:13px;border-radius:9px;
+  border:1px solid #29485a;background:#07121e;
+  color:white;font-size:14px
+}
+button{
+  width:100%;padding:14px;margin-top:15px;
+  border:0;border-radius:9px;font-weight:bold;cursor:pointer
+}
+.primary{background:linear-gradient(90deg,#00cfff,#00e9ae);color:#041019}
+.secondary{background:#13283a;color:#e1f7ff;border:1px solid #315166}
+.info{
+  margin-top:20px;padding:14px;border-radius:10px;
+  background:#07101a;font-size:12px;line-height:1.8;color:#c6dce8
+}
+.small{text-align:center;color:#849aaa;font-size:10px;line-height:1.7;margin-top:18px}
+</style>
 </head>
-<body class="bg-terminal-hitam text-terminal-putih font-mono min-h-screen p-4 md:p-8">
-    <div class="max-w-4xl mx-auto">
-        <!-- HEADER -->
-        <div class="border-2 border-terminal-ungu rounded-md p-4 mb-6 text-center">
-            <h1 class="text-terminal-ungu text-xl md:text-2xl font-bold mb-2">====================================================================================================</h1>
-            <h2 class="text-terminal-ungu text-lg md:text-xl font-bold mb-4">WHATSAPP ATTACK PANEL ULTIMATE v29.0</h2>
-            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 <span class="indikator-online"></span> SISTEM AKTIF & TERHUBUNG KE SERVER UTAMA</p>
-            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 TERTAUT KE NOMOR UTAMA: <span class="font-bold">085640914382</span></p>
-            <p class="text-terminal-hijau text-sm md:text-base mb-1">📌 BERFUNGSI 100% SEPERTI YANG ADA DI TIKTOK | BUKAN CUMA TAMPILAN</p>
-            <p class="text-terminal-hijau text-sm md:text-base">📌 NOTIFIKASI SUKSES = PERINTAH SUDAH BERJALAN DI TUJUAN</p>
-            <h1 class="text-terminal-ungu text-xl md:text-2xl font-bold mt-2">====================================================================================================</h1>
-        </div>
+<body>
+<main>
+  <div class="logo">⚔️</div>
+  <h1>ROOM WANGI</h1>
+  <p class="sub">MOBILE LEGENDS • BOT PRACTICE</p>
 
-        <!-- STATUS SISTEM -->
-        <div class="border border-terminal-hijau rounded-md p-3 mb-6" id="statusSistem">
-            <p class="text-terminal-hijau flex items-center gap-2">
-                <i class="fa fa-check-circle"></i> Koneksi ke server pusat: <span class="font-bold">TERHUBUNG</span>
-            </p>
-            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
-                <i class="fa fa-check-circle"></i> Otorisasi akses: <span class="font-bold">DIVERIFIKASI</span>
-            </p>
-            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
-                <i class="fa fa-check-circle"></i> Modul pengiriman data: <span class="font-bold">SIAP DIGUNAKAN</span>
-            </p>
-            <p class="text-terminal-hijau flex items-center gap-2 mt-1">
-                <i class="fa fa-check-circle"></i> Kunci keamanan sistem: <span class="font-bold">TERAKTIFKAN</span>
-            </p>
-        </div>
+  <label for="id">ID Mobile Legends (opsional)</label>
+  <input id="id" inputmode="numeric" placeholder="ID pemain">
 
-        <!-- DAFTAR FITUR -->
-        <div class="border border-terminal-biru rounded-md p-4 mb-6">
-            <h3 class="text-terminal-biru text-lg font-bold mb-3 flex items-center gap-2">
-                <i class="fa fa-list-alt"></i> DAFTAR FITUR & HASIL KERJA NYATA
-            </h3>
-            <div class="border-b border-terminal-biru mb-3"></div>
-            <div class="grid grid-cols-1 gap-3 text-sm md:text-base">
-                <p class="text-terminal-biru"><span class="font-bold">[ 1 ] CRASH UI</span><br>✅ Hasil: Tampilan WA target rusak total, tulisan berantakan, tombol tidak bisa diklik, tidak bisa dibaca pesan</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 2 ] DELAY INVISIBLE</span><br>✅ Hasil: WA menjadi sangat lambat, membuka pesan/obrolan butuh waktu lama, semua aksi tertunda 5-15 detik</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 3 ] CRASH IOS INVISIBLE</span><br>✅ Hasil: Khusus HP iPhone, WA langsung keluar sendiri paksa, setiap kali dibuka akan keluar lagi selama proses berjalan</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 4 ] FORCE CLOSE INFINITY 1 MSG</span><br>✅ Hasil: Cukup kirim sekali saja, nanti setiap kali WA dibuka akan langsung tertutup terus-menerus sampai kamu hentikan</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 5 ] FORCE CLOSE INVISIBLE</span><br>✅ Hasil: WA tiba-tiba keluar sendiri kapan saja, pengguna tidak tahu apa penyebabnya karena tidak ada pemberitahuan</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 6 ] FORCE CLOSE IOS INVISIBLE</span><br>✅ Hasil: Sama seperti nomor 5, khusus untuk perangkat iPhone</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 7 ] SPAM CALL</span><br>✅ Hasil: HP akan berdering/bergetar terus-menerus dengan panggilan masuk, tidak bisa ditolak atau dimatikan sampai proses dihentikan</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 8 ] DELAY HARD INVISIBLE</span><br>✅ Hasil: Semua aplikasi di HP menjadi lambat berat, bukan cuma WA saja, membuka apapun butuh waktu lama, sistem HP terbebani penuh</p>
-                <p class="text-terminal-biru"><span class="font-bold">[ 9 ] BLANK ANDROID</span><br>✅ Hasil: Khusus HP Android, layar obrolan WA menjadi kosong polos, hanya ada latar belakang saja, tidak ada tulisan atau gambar apapun yang terlihat</p>
-                <p class="text-terminal-biru"><span class="font-bold">[10 ] FREEZE CHAT INFINITY</span><br>✅ Hasil: Obrolan yang dibuka menjadi macet total, tidak bisa digeser ke atas/bawah, tidak bisa mengetik pesan baru, semua tombol di layar obrolan tidak berfungsi</p>
-                <p class="text-terminal-biru"><span class="font-bold">[11 ] BULDOZER (SEPONG KUOTA)</span><br>✅ Hasil: Kuota data HP target akan habis dengan sangat cepat, bisa sampai 100-500MB per jam, data terus dipakai meskipun HP tidak dipakai</p>
-                <p class="text-terminal-biru"><span class="font-bold">[12 ] FORCE CLOSE VISIBLE</span><br>✅ Hasil: WA keluar sendiri dan muncul tulisan pemberitahuan di layar yang isinya bisa kamu sesuaikan sendiri</p>
-            </div>
-            <div class="border-b border-terminal-biru mt-3"></div>
-        </div>
+  <label for="server">Wilayah pilihan (catatan pribadi)</label>
+  <select id="server">
+    <option>Indonesia</option>
+    <option>Singapura</option>
+    <option>Malaysia</option>
+    <option>Filipina</option>
+    <option>Lainnya</option>
+  </select>
 
-        <!-- BAGIAN INPUT -->
-        <div class="border border-terminal-putih rounded-md p-4 mb-6" id="bagianInput">
-            <div class="space-y-4">
-                <div>
-                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
-                        <i class="fa fa-keyboard-o"></i> KETIK ANGKA PILIHAN (1-12):
-                    </label>
-                    <input type="number" id="pilihan" min="1" max="12" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Contoh: 1">
-                </div>
+  <button class="primary" id="open">BUKA MOBILE LEGENDS</button>
+  <button class="secondary" id="guide">CARA MASUK ROOM BOT</button>
 
-                <div>
-                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
-                        <i class="fa fa-phone"></i> MASUKKAN NOMOR TARGET (AWALAN 62):
-                    </label>
-                    <input type="text" id="nomor" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Contoh: 628123456789">
-                </div>
+  <div class="info" id="info" aria-live="polite">
+    Status: halaman siap digunakan.<br>
+    Belum ada koneksi langsung ke server MLBB.
+  </div>
 
-                <div>
-                    <label class="text-terminal-putih text-sm md:text-base flex items-center gap-2 mb-2">
-                        <i class="fa fa-paper-plane"></i> KETIK: SEND BUG UNTUK MENGIRIM:
-                    </label>
-                    <input type="text" id="konfirmasi" class="w-full bg-transparent border border-terminal-putih rounded p-2 text-terminal-putih focus:outline-none focus:border-terminal-hijau" placeholder="Ketik persis: SEND BUG">
-                </div>
+  <p class="small">
+    Fan-made website. Pilihan wilayah hanya catatan pribadi
+    dan tidak mengubah server akun. Jangan masukkan password
+    atau kode OTP.
+  </p>
+</main>
 
-                <button id="tombolKirim" class="w-full bg-terminal-ungu hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition-all">
-                    KIRIM PERINTAH
-                </button>
+<script>
+const info = document.getElementById("info");
 
-                <button id="tombolHentikan" class="w-full bg-terminal-merah hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded transition-all hidden">
-                    HENTIKAN SEMUA PROSES
-                </button>
-            </div>
-        </div>
+document.getElementById("open").addEventListener("click",()=>{
+  info.textContent = "Mencoba membuka aplikasi Mobile Legends...";
+  window.location.href = "mobilelegends://";
+});
 
-        <!-- BAGIAN HASIL -->
-        <div id="hasil" class="hidden border border-terminal-hijau rounded-md p-4 proses-aktif">
-            <h3 class="text-terminal-hijau text-lg font-bold mb-4 flex items-center gap-2">
-                <i class="fa fa-cog berputar"></i> STATUS PROSES
-            </h3>
-            <div id="isiHasil" class="text-sm md:text-base leading-relaxed"></div>
-        </div>
-    </div>
+document.getElementById("guide").addEventListener("click",()=>{
+  info.replaceChildren();
 
-    <script>
-        // KONFIGURASI UTAMA SISTEM
-        const NOMOR_UTAMA = "085640914382";
-        const KODE_AKSES = "ORION-MASTER-789456123";
-        let intervalProses = null;
-        let prosesAktif = false;
+  const title = document.createElement("strong");
+  title.textContent = "CARA BERMAIN MELAWAN BOT";
+  info.appendChild(title);
 
-        // Ambil elemen halaman
-        const pilihanInput = document.getElementById('pilihan');
-        const nomorInput = document.getElementById('nomor');
-        const konfirmasiInput = document.getElementById('konfirmasi');
-        const tombolKirim = document.getElementById('tombolKirim');
-        const tombolHentikan = document.getElementById('tombolHentikan');
-        const hasilDiv = document.getElementById('hasil');
-        const isiHasil = document.getElementById('isiHasil');
-
-        // DATA LENGKAP SEMUA FITUR
-        const daftarFitur = {
-            '1': {
-                nama: 'CRASH UI',
-                tahapan: [
-                    '<span class="kode-aktif">[1/8]</span> 📋 Memuat modul pengubah struktur tampilan aplikasi...',
-                    '<span class="kode-aktif">[2/8]</span> 🔐 Memverifikasi identitas pemilik nomor utama...',
-                    '<span class="kode-aktif">[3/8]</span> 🛰️ Menghubungkan ke server pusat sistem...',
-                    '<span class="kode-aktif">[4/8]</span> 🔑 Mendapatkan kunci otorisasi pengiriman...',
-                    '<span class="kode-aktif">[5/8]</span> 📤 Mengirim paket data khusus ke nomor: {{NOMOR}}...',
-                    '<span class="kode-aktif">[6/8]</span> ⚙️ Memproses perintah di server tujuan...',
-                    '<span class="kode-aktif">[7/8]</span> ✅ Perintah berhasil diterapkan ke aplikasi...',
-                    '<span class="kode-aktif">[8/8]</span> 📡 Mengirim laporan konfirmasi ke nomor utama...'
-                ]
-            },
-            '2': {
-                nama: 'DELAY INVISIBLE',
-                tahapan: [
-                    '<span class="kode-aktif">[1/8]</span> 📋 Menyiapkan paket pembebanan memori dan prosesor...',
-                    '<span class="kode-aktif">[2/8]</span> 🔐 Memverifikasi akses pemilik sistem...',
-                    '<span class="kode-aktif">[3/8
-                  
+  [
+    "1. Buka Mobile Legends.",
+    "2. Masuk ke menu pemilihan mode.",
+    "3. Pilih VS AI untuk pertandingan melawan komputer.",
+    "4. Atau pilih Custom jika ingin mengatur room dan slot bot yang tersedia.",
+    "5. Atur tim dan mulai pertandingan dari dalam game."
+  ].forEach(text=>{
+    const p=document.createElement("p");
+    p.textContent=text;
+    info.appendChild(p);
+  });
+});
+</script>
+</body>
+</html>
